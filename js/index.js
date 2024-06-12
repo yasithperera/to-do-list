@@ -10,6 +10,8 @@ const listContainerElm = document
 const noItemsElm = document
     .querySelector("#list-container > div");
 
+const modeElm = document.querySelector('#mode');
+
 btnAddTaskElm.addEventListener('click', (e) => {
     e.preventDefault();
     const task = txtTaskElm.value.trim();
@@ -94,5 +96,13 @@ listContainerElm.addEventListener('keydown', (e) => {
                 e.target.remove();
             }
             break;
+    }
+});
+
+modeElm.addEventListener('change', () => {
+    if (modeElm.checked) {
+        document.querySelector('html').setAttribute('data-bs-theme', 'dark');
+    } else {
+        document.querySelector('html').removeAttribute('data-bs-theme');
     }
 });
